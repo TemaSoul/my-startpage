@@ -3,7 +3,7 @@ let saved_config = JSON.parse(localStorage.getItem("CONFIG"));
 const default_config = {
   overrideStorage: true,
   temperature: {
-    location: (window.PRIVATE_CONFIG && window.PRIVATE_CONFIG.weatherLocation) || 'Moscow',
+    location: (window.PRIVATE_CONFIG && window.PRIVATE_CONFIG.weatherLocation),
     scale: "C",
   },
   clock: {
@@ -13,7 +13,8 @@ const default_config = {
   search: {
     engines: {
       s: ["http://localhost:8080/search?q=", "SearXNG"],
-      g: ["https://github.com/search?q=", "GitHub"],
+      gh: ["https://github.com/search?q=", "GitHub"],
+      g: ["https://www.google.com/search?q=", "Google"],
       d: ["https://duckduckgo.com/html?q=", "DuckDuckGo"],
       y: ["https://youtube.com/results?search_query=", "Youtube"],
       ya: ["https://yandex.ru/search/?text=", "Yandex"],
@@ -42,19 +43,25 @@ const default_config = {
             icon: "brand-messenger",
             icon_color: "#a9b",
           },
-          {                                 
-            name: "cinny",                 
-            url: "http://localhost:8081/home/", 
-            icon: "brand-matrix",           
-            icon_color: "#8fb482",          
-          },                                
+          {
+            name: "cinny",
+            url: "http://localhost:8081/home/",
+            icon: "brand-matrix",
+            icon_color: "#8fb482",
+          },
+          {
+            name: "discord",
+            url: "https://discord.com/channels/",
+            icon: "brand-discord",
+            icon_color: "#a6b",
+          },
           {
             name: "reddit",
             url: "https://www.reddit.com/",
             icon: "brand-reddit",
             icon_color: "#e78a4e",
           },
-                  ],
+        ],
       }, {
         name: "Video",
         links: [
@@ -64,12 +71,12 @@ const default_config = {
             icon: "brand-youtube-filled",
             icon_color: "#ea6962",
           },
-          {                                  
-            name: "dzen",                 
-            url: "https://dzen.ru/subscriptions-manager", 
-            icon: "sparkles",    
-            icon_color: "#f2f3ff",           
-          },                                 
+          {
+            name: "dzen",
+            url: "https://dzen.ru/subscriptions-manager",
+            icon: "sparkles",
+            icon_color: "#f2f3ff",
+          },
 
           {
             name: "twitch",
@@ -77,12 +84,12 @@ const default_config = {
             icon: "brand-twitch",
             icon_color: "#d3869b",
           },
-           {                                  
-             name: "rutube",                 
-             url: "https://rutube.ru/", 
-             icon: "brand-youtube",    
-             icon_color: "#da6972",           
-           },                                 
+          {
+            name: "rutube",
+            url: "https://rutube.ru/",
+            icon: "brand-youtube",
+            icon_color: "#da6972",
+          },
         ],
       }, {
         name: "Music",
@@ -115,12 +122,18 @@ const default_config = {
               icon: "brand-pinterest",
               icon_color: "#ea6962",
             },
-            {                                   
-              name: "flickr",                
-              url: "https://flickr.com/explore/", 
-              icon: "camera",          
-              icon_color: "#ed6984",            
-            },                                  
+            {
+              name: "flickr",
+              url: "https://flickr.com/explore/",
+              icon: "camera",
+              icon_color: "#ed6984",
+            },
+            {
+              name: "500px",
+              url: "https://500px.com/photographers",
+              icon: "aperture",
+              icon_color: "#e76e46",
+            },
           ],
         },
         {
@@ -201,17 +214,23 @@ const default_config = {
               icon: "brand-python",
               icon_color: "#ea5f",
             },
-            {                                    
-              name: "stackoverflow",               
-              url: "https://ru.stackoverflow.com/", 
-              icon: "brand-stackoverflow",              
-              icon_color: "#ea6f2f",               
-            },                                   
+            {
+              name: "stackoverflow",
+              url: "https://ru.stackoverflow.com/",
+              icon: "brand-stackoverflow",
+              icon_color: "#ea6f2f",
+            },
             {
               name: "vscode",
               url: "https://vscode.dev/",
               icon: "brand-vscode",
               icon_color: "#7daea3",
+            },
+            {
+              name: "habr",
+              url: "https://habr.com/ru/",
+              icon: "chart-arcs",
+              icon_color: "#7da985",
             },
           ],
         },
@@ -259,18 +278,18 @@ const default_config = {
               icon: "brand-gmail",
               icon_color: "#ea6962",
             },
-            {                                           
-              name: "gmail-2",                            
-              url: "https://mail.google.com/mail/u/1/", 
-              icon: "brand-gmail",                      
-              icon_color: "#ea6962",                    
-            },                                          
-            {                                           
-              name: "yandex-mail",                            
-              url: "https://mail.yandex.ru", 
-              icon: "mail",                      
-              icon_color: "#e3b962",                    
-            },                                          
+            {
+              name: "gmail-2",
+              url: "https://mail.google.com/mail/u/1/",
+              icon: "brand-gmail",
+              icon_color: "#ea6962",
+            },
+            {
+              name: "yandex-mail",
+              url: "https://mail.yandex.ru",
+              icon: "mail",
+              icon_color: "#e3b962",
+            },
 
           ],
         },
@@ -283,18 +302,18 @@ const default_config = {
               icon: "brand-google-drive",
               icon_color: "#e78a4e",
             },
-            {                                                     
-              name: "yandex-disk",                                      
-              url: "https://disk.yandex.ru", 
-              icon: "brand-onedrive",                         
-              icon_color: "#e78a4e",                              
-            },                                                    
+            {
+              name: "yandex-disk",
+              url: "https://disk.yandex.ru",
+              icon: "brand-onedrive",
+              icon_color: "#e78a4e",
+            },
 
             {
-              name: "dropbox",
-              url: "https://www.dropbox.com/h?role=personal&di=left_nav",
-              icon: "box-seam",
-              icon_color: "#7daea3",
+              name: "rutracker",
+              url: "https://rutracker.org/",
+              icon: "stars",
+              icon_color: "#3fb448",
             },
             {
               name: "fotos",

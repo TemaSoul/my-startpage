@@ -3,7 +3,7 @@ import os
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 
 # === КРИТИЧЕСКИ ВАЖНО: Указываем абсолютный путь к папке со стартовой страницей ===
-WEB_ROOT = "/home/tema/startpages/tema-startpage"
+WEB_ROOT = "/home/tema/my-startpage"
 os.chdir(WEB_ROOT)  # Меняем текущую директорию для процесса сервера
 # print(f"[INFO] Рабочая директория сервера установлена: {os.getcwd()}")
 # print(f"[INFO] Файл index.html существует: {os.path.exists('index.html')}")
