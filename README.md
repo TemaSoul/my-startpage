@@ -3,6 +3,5 @@
 
 ![gif](https://github.com/TemaSoul/my-startpage/blob/main/resurces/gif/my-startpage.gif)
 
-![скриншот рабочего стола](./resurces/screenshots/page-2026-02-04_18-39.png)
 ![скриншот рабочего стола](./resurces/screenshots/tab_2026-02-04_18-38.png)
 
