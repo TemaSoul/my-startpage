@@ -13,6 +13,8 @@ const default_config = {
   search: {
     engines: {
       s: ["http://localhost:8080/search?q=", "SearXNG"],
+      git: ["https://codeberg.org/explore/repos?q=", "CodeBerg"],
+      als: ["https://altlinux.space/", "altlinux.space"],
       gh: ["https://github.com/search?q=", "GitHub"],
       g: ["https://www.google.com/search?q=", "Google"],
       d: ["https://duckduckgo.com/html?q=", "DuckDuckGo"],
@@ -183,14 +185,20 @@ const default_config = {
               name: "github",
               url: "https://github.com/",
               icon: "brand-github",
+              icon_color: "#7daed3",
+            },
+            {
+              name: "codeberg",
+              url: "https://codeberg.org/",
+              icon: "code",
               icon_color: "#7daea3",
             },
             {
-              name: "gitlab",
-              url: "https://gitlab.com/",
-              icon: "brand-gitlab",
-              icon_color: "#e78a4e",
-            },
+              name: "altlinux.space",
+              url: "https://altlinux.space/",
+              icon: "meteor",
+              icon_color: "#e3b962",
+            }
           ],
         },
         {
